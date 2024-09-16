@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "7b5f8aab-a571-4e43-84d5-4e1bd81de96a",
+		"name": "sbluel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21609277"
+	},
+	"item": [
+		{
+			"name": "get_works",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get_categories",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

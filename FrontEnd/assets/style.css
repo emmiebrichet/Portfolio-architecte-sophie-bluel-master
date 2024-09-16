@@ -1,0 +1,581 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css**/
+a{
+	color: black;
+	text-decoration: none;
+}
+body {
+	max-width: 1140px;
+	margin:auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+section {
+	margin: 50px 0
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li:hover {
+	color: #B1663C;
+}
+#introduction {
+	display: flex;
+	align-items: center;
+}
+#introduction figure {
+	flex: 1
+}
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+.modal-backdrop {
+    position: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(73, 72, 72, 0.7); /* Noir avec 70% d'opacité */
+    z-index: 1000; /* S'assure que le fond est au-dessus des autres éléments */
+}
+#myModal_projets {
+	display: flex; /* Le modale est caché par défaut */
+    position: fixed; 
+	flex-direction: row;
+	flex-wrap: wrap;
+    top: 50%; 
+    left: 50%;
+    width: 520px; 
+    height: 580px;
+    transform: translate(-50%, -50%); /* Centre le modale */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Inclut la bordure dans les dimensions */
+	
+	
+ 
+    
+}
+#myModal_projets .boutons{
+	display: flex;
+	justify-content: flex-end;
+	padding-bottom: 10px;
+
+
+}
+#myModal_projets form{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+	margin-left: 20px;
+	
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.image-container i {
+    position: absolute;
+    top: 10px; /* Ajustez selon la position désirée */
+    right: 10px; /* Ajustez selon la position désirée */
+    color: white; /* Couleur de l'icône */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour l'icône */
+    padding: 5px;
+    font-size: 10px; /* Taille de l'icône ajustée pour être plus visible */
+    
+    cursor: pointer; /* Curseur pour indiquer que c'est cliquable */
+}
+
+
+
+.project-item {
+    position: relative;
+    display: inline-block;
+    margin: 1px;
+	
+}
+
+.project-item img {
+    display: block;
+	height: 102px;
+	width: 77px;
+	margin: 5px;
+}
+
+.project-item i {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: rgb(226, 217, 217); /* Couleur de l'icône de poubelle */
+}
+
+.project-item p {
+    text-align: center;
+}
+
+#myModal_projets .ligne-horizontale {
+    width: 420px; /* ou une largeur spécifique, par exemple 200px */
+    height: 2px; /* épaisseur de la ligne */
+    background-color: #B3B3B3; /* couleur de la ligne */
+    margin-top: 20px;
+	margin-left: 20px;
+   
+}
+
+#myModal_projets button {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    border: none;
+    width: 180px;
+    height: 36px;
+    text-align: center;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+
+#myModal_addProject {
+	display: none; /* Le modale est caché par défaut */
+    top: 50%; 
+    left: 50%;
+    width: 520px; 
+    height: 580px;
+    transform: translate(-50%, -50%); /* Centre le modale */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Inclut la bordure dans les dimensions */
+    display: flex; /* Permet d'utiliser flexbox pour l'alignement interne */
+    flex-direction: column;
+    justify-content: cente	r; /* Aligne verticalement le contenu */
+    align-items: center; /* Aligne horizontalement le contenu */
+    overflow: hidden; /* Cache les débordements éventuels */
+  }
+
+  #myModal_addProject .icone{
+	margin-top: 20px;
+	margin-bottom: 5px;
+  }
+  
+#myModal_addProject .boutons{
+	display: flex;
+	justify-content: space-between;
+}
+#myModal_addProject form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 420px;
+}
+#myModal_addProject select{
+	height: 50px;
+	width: 420px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	margin-left: 20px;
+}
+#myModal_addProject  label{
+	margin-left: 20px;
+	
+	padding-top: 20px;
+	padding-bottom: 5px;	
+}
+
+#myModal_addProject input{
+	height: 50px;
+	width: 420px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	margin-left: 20px;
+}
+#myModal_addProject .ligne-horizontale {
+    width: 420px; /* ou une largeur spécifique, par exemple 200px */
+    height: 2px; /* épaisseur de la ligne */
+    background-color: #B3B3B3; /* couleur de la ligne */
+    margin-top: 20px;
+	margin-left: 20px;
+   
+}
+
+#myModal_addProject button {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #B3B3B3;
+    border: none;
+    width: 180px;
+    height: 36px;
+    text-align: center;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+/* Classe pour le bouton lorsque l'image est présente */
+.button-active {
+    background-color: #1D6154; /* Couleur souhaitée */
+    color: white; /* Couleur du texte */
+}
+
+.bouton {
+	margin-right: 150px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+	
+
+}
+.photo-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+	
+}
+
+
+.preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#imagePreview img {
+    width: 30px; /* Limiter la largeur de l'image */
+    height: 20px; /* Limiter la hauteur de l'image */
+    width: auto; /* Ajuste la largeur automatiquement pour maintenir les proportions */
+    height: auto; /* Ajuste la hauteur automatiquement pour maintenir les proportions */
+    display: block; /* Affiche l'image comme un bloc */
+}
+.preview-image {
+	top: 5px;
+    width: 100%;
+    height: auto;
+    display: block;
+	width: 130px; /* Limiter la largeur de l'image */
+    height: 190px;
+}
+
+
+
+.photo-upload {
+	display: flex;
+    position: relative;
+	flex-direction: column;
+    width: 420px;
+    height: 190px;
+    background-color: #EDF3F8; 
+    text-align: center;
+    font-family: Arial, sans-serif;
+	align-items: center;
+	margin-left: 30px;	
+}
+.photo-upload  i { 	
+	color: #e0e6ec;
+	font-size: 86px;
+	margin: 0;
+}
+
+
+.upload-button {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre semi-transparent */
+    display: none; /* Caché par défaut */
+    z-index: 1; /* Position au-dessus du contenu */
+}
+
+dialog {
+    z-index: 2; /* Les modales doivent être au-dessus du fond sombre */
+	bottom: unset;;
+   
+}
+
+.modal-backdrop.active {
+    display: block; /* Affiché lorsque la classe active est ajoutée */
+}
+
+.file-info {
+    font-size: 12px;
+    color: #777;
+}
+.Modifier{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items:baseline;
+	cursor: pointer;
+}
+.Modifier i{
+	padding: 10px;
+}
+#filter-buttons {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 20px;
+}
+#filter-buttons button {
+	font-family: 'Syne';
+	font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+	border-radius: 20px ;
+	height: 38px;
+	background-color:white;
+	border: 1px solid #1D6154;
+	color: #1D6154;
+	padding-right: 2%;
+	padding-left:2%;	
+}
+#filter-buttons :hover {
+    background-color: #1D6154;
+	color: aliceblue;
+}
+#introduction p {
+	margin-bottom: 0.5em;
+}
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+.gallery img {
+	width: 100%;
+}
+#contact {
+	width: 50%;
+	margin: auto;
+}
+#contact > * {
+	text-align: center;
+
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+#contact form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+#contact p {
+	color: #1D6154;	
+}
+#login {
+	width: 50%;
+margin: auto;
+}
+#login > * {
+	text-align: center;
+}	
+#login h2{
+	margin-bottom: 20px;
+}
+#login form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+#login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login label {
+	margin: 2em 0 1em 0;
+}
+#login textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login [type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	border-radius: 60px ;
+	margin-bottom: 15px;
+}
+#login p {
+	display: block;
+	color: #1D6154;
+	text-decoration: underline;
+}
+
+#errorMessage{
+margin-left: 150px;
+margin-bottom:  50px; ;
+color: #df1414;
+font-weight: bold;
+text-decoration:underline ;
+
+}
+.editor{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;
+	height: 56px;
+}
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}

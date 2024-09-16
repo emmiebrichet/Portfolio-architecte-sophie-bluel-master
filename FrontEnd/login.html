@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sophie Bluel - Architecte d'intérieur</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        	crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<meta name="description" content="">
+		<link rel="stylesheet" href="./assets/style.css">
+		<script src="login.js"defer></script>
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+		 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+			</div>
+			<div class="menu">
+				<nav>
+					<ul>
+				 		<a href="index.html#portfolio"><li>Projets</li></a>
+				 		<a href="index.html#contact"><li>Contact</li></a>
+				 		<a href="log in.html"><li>login</li></a>
+				 		<li> <a href=" https://www.instagram.com/"><img src="./assets/icons/instagram.png" alt="Instagram"></li></a>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			
+			<div id="login">
+				<h2>Log in</h2>
+				<form id="loginForm" action="/submit_login" method="POST">
+				  <label for="username">Email :</label>
+				  <input type="text" id="username" name="username" required>
+				  <label for="password">Mot de passe :</label>
+				  <input type="password" id="password" name="password" required>
+				  <button type="submit">Se connecter</button>
+				  <div id="errorMessage" class="Erreur">
+				</form>	
+				
+			</div>
+			<a href="#"><p>Mot de passe oublié</p></a>
+		<footer>
+			<nav>
+				<ul>
+					<li>Mentions Légales</li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+</html>
