@@ -9,19 +9,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const backToProjectsBtn = document.getElementById("backToProjectsBtn");
     const closeAddProjectModalBtn = document.getElementById("closeAddProjectModalBtn");
 
-    // Fonction pour ouvrir un modal
+    // Fonction pour ouvrir un modal avec display block
     function openModal(modal) {
         modalBackdrop.classList.add('active');
         modal.style.display = "block";
     }
 
-    // Fonction pour fermer un modal
+    // Fonction pour fermer un modal avec display none
     function closeModal(modal) {
         modal.style.display = "none";
         checkIfBackdropShouldClose();
     }
 
-    // Vérifier si le fond sombre doit être désactivé
+    // Vérifier si le fond sombre doit rester actif
     function checkIfBackdropShouldClose() {
         if (modalProjets.style.display === "none" && modalAddProject.style.display === "none") {
             modalBackdrop.classList.remove('active');
@@ -47,17 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
     closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
 
-    // Fermer le modal en cliquant sur le fond sombre
-    modalBackdrop.addEventListener('click', () => {
-        if (modalProjets.style.display === "block") closeModal(modalProjets);
-        if (modalAddProject.style.display === "block") closeModal(modalAddProject);
-    });
-
     // Assurer que le modal "Ajout de projet" est caché dès le chargement
     modalAddProject.style.display = "none";
 });
-
-
-
-
-
