@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalProjets = document.getElementById("myModal_projets");
     const modalAddProject = document.getElementById("myModal_addProject");
     const modalBackdrop = document.querySelector('.modal-backdrop');
-    
+    const openModalIcon = document.getElementById("openModalIcon");
     const openModalBtn = document.getElementById("openModalBtn");
     const addPhotoBtn = document.getElementById("addPhotoBtn");
     const closeModalBtn = document.getElementById("closeModalBtn");
     const backToProjectsBtn = document.getElementById("backToProjectsBtn");
     const closeAddProjectModalBtn = document.getElementById("closeAddProjectModalBtn");
+
+    
 
     // Fonction pour ouvrir un modal avec display block
     function openModal(modal) {
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Ouvrir le modal "Mes Projets"
     openModalBtn.addEventListener('click', () => openModal(modalProjets));
+    openModalIcon.addEventListener('click', () => openModal(modalProjets));
 
     // Ouvrir le modal "Ajout de projet"
     addPhotoBtn.addEventListener('click', () => {
@@ -50,3 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Assurer que le modal "Ajout de projet" est caché dès le chargement
     modalAddProject.style.display = "none";
 });
+
+
+
