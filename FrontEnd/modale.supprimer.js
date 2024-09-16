@@ -1,10 +1,15 @@
 const apiUrl = 'http://localhost:5678/api/works';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjQ3ODQzOCwiZXhwIjoxNzI2NTY0ODM4fQ.2wiHnaULlAzsxXYlQDHzguHCuJMT8_kxjmgxXrL7iEw';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjQ5MjkwOSwiZXhwIjoxNzI2NTc5MzA5fQ.8R0kcGMjNZuTatbb8pz05C9LpJ8aXGCUoi-BLQsVmB4';
 
 // Fonction pour charger les projets depuis l'API et ajouter une icône de poubelle
 function loadProjects() {
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(works => {
             const projectContainer = document.getElementById('projectContainer');
             projectContainer.innerHTML = ''; // Vider le conteneur avant d'ajouter les projets
@@ -20,11 +25,10 @@ function loadProjects() {
                 img.alt = `Image du projet ${work.title}`;
                 img.style.width = '77px'; // Ajuster la largeur si nécessaire
                 img.style.height = '103px'; // Ajuster la hauteur si nécessaire
-    
 
                 // Icône de poubelle
                 const trashIcon = document.createElement('i');
-                trashIcon.classList.add('fa-duotone', 'fa-solid', 'fa-trash-can');
+                trashIcon.classList.add('fa', 'fa-trash-can');
                 trashIcon.setAttribute('data-project-id', work.id);
 
                 // Écouteur d'événement pour supprimer le projet
@@ -61,7 +65,7 @@ function deleteProject(projectId) {
             }
             console.log('Projet supprimé avec succès.');
         } else {
-            console.error('Échec de la suppression du projet.');
+            console.error(`Échec de la suppression du projet: ${response.status}`);
         }
     })
     .catch(error => console.error('Erreur lors de la suppression du projet:', error));
