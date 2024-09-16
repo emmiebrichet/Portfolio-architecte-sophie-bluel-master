@@ -50,8 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
     closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
 
-    // Assurer que le modal "Ajout de projet" est caché dès le chargement
-    modalAddProject.style.display = "none";
+   
 });
 
 

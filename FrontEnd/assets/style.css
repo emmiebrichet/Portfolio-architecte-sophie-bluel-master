@@ -129,7 +129,7 @@ li:hover {
     z-index: 1000; /* S'assure que le fond est au-dessus des autres éléments */
 }
 #myModal_projets {
-	display: flex; /* Le modale est caché par défaut */
+	display: none; /* Le modale est caché par défaut */
     position: fixed; 
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -141,10 +141,6 @@ li:hover {
     background-color: white;
     border: 1px solid #ccc;
     box-sizing: border-box; /* Inclut la bordure dans les dimensions */
-	
-	
- 
-    
 }
 #myModal_projets .boutons{
 	display: flex;
@@ -181,7 +177,6 @@ li:hover {
     background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour l'icône */
     padding: 5px;
     font-size: 10px; /* Taille de l'icône ajustée pour être plus visible */
-    
     cursor: pointer; /* Curseur pour indiquer que c'est cliquable */
 }
 
@@ -223,7 +218,7 @@ li:hover {
 }
 
 #myModal_projets button {
-    font-family: 'Syne';
+	font-family: 'Syne';
     font-weight: 700;
     color: white;
     background-color: #1D6154;
@@ -238,20 +233,18 @@ li:hover {
 
 
 #myModal_addProject {
-	display: none; /* Le modale est caché par défaut */
+	display: none; 
+    position: fixed; 
+	flex-direction: row;
+	flex-wrap: wrap;
     top: 50%; 
     left: 50%;
     width: 520px; 
     height: 580px;
-    transform: translate(-50%, -50%); /* Centre le modale */
+    transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Inclut la bordure dans les dimensions */
-    display: flex; /* Permet d'utiliser flexbox pour l'alignement interne */
-    flex-direction: column;
-    justify-content: cente	r; /* Aligne verticalement le contenu */
-    align-items: center; /* Aligne horizontalement le contenu */
-    overflow: hidden; /* Cache les débordements éventuels */
+    box-sizing: border-box; 
   }
 
   #myModal_addProject .icone{
@@ -279,7 +272,6 @@ li:hover {
 }
 #myModal_addProject  label{
 	margin-left: 20px;
-	
 	padding-top: 20px;
 	padding-bottom: 5px;	
 }
@@ -293,12 +285,11 @@ li:hover {
 	margin-left: 20px;
 }
 #myModal_addProject .ligne-horizontale {
-    width: 420px; /* ou une largeur spécifique, par exemple 200px */
-    height: 2px; /* épaisseur de la ligne */
-    background-color: #B3B3B3; /* couleur de la ligne */
+	width: 420px;
+    height: 2px; 
+    background-color: #B3B3B3; 
     margin-top: 20px;
 	margin-left: 20px;
-   
 }
 
 #myModal_addProject button {
@@ -315,11 +306,7 @@ li:hover {
     margin-left: 150px;
 }
 
-/* Classe pour le bouton lorsque l'image est présente */
-.button-active {
-    background-color: #1D6154; /* Couleur souhaitée */
-    color: white; /* Couleur du texte */
-}
+
 
 .bouton {
 	margin-right: 150px;
