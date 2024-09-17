@@ -68,7 +68,7 @@ if (addProjectForm) {
                 const response = await fetch('http://localhost:5678/api/works', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjQ5MjkwOSwiZXhwIjoxNzI2NTc5MzA5fQ.8R0kcGMjNZuTatbb8pz05C9LpJ8aXGCUoi-BLQsVmB4' // Mettez à jour le token ici
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjU2NjI0NSwiZXhwIjoxNzI2NjUyNjQ1fQ.ysVYWCKuAM7NV7CdxRLE7-W94KR3Bg97sp5qewlKrTs' 
                     },
                     body: formData
                 });
