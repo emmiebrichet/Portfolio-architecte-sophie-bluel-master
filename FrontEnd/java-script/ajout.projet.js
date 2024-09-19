@@ -1,3 +1,13 @@
+document.getElementById('triggerFileInput').addEventListener('click', function() {
+    const fileInput = document.getElementById('fileInput');
+    if (fileInput) {
+        fileInput.click();
+    } else {
+        console.error('Élément fileInput introuvable');
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function() { 
     const categorySelect = document.getElementById('categorySelect');
     
@@ -17,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Élément categorySelect introuvable');
     }
 });
+
+
 
 const fileInput = document.getElementById('fileInput');
 if (fileInput) {
@@ -96,11 +108,3 @@ if (addProjectForm) {
     console.error('Élément addProjectForm introuvable');
 }
 
-document.getElementById('triggerFileInput').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput) {
-        fileInput.click();
-    } else {
-        console.error('Élément fileInput introuvable');
-    }
-});

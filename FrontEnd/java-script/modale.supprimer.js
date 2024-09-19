@@ -60,12 +60,7 @@ function deleteProject(projectId) {
         if (response.ok) {
             // Supprimer le projet du DOM
             const projectDiv = document.getElementById(`project-${projectId}`);
-            if (projectDiv) {
-                projectDiv.remove();
-            }
-            console.log('Projet supprimé avec succès.');
-        } else {
-            console.error(`Échec de la suppression du projet: ${response.status}`);
+
         }
     })
     .catch(error => console.error('Erreur lors de la suppression du projet:', error));

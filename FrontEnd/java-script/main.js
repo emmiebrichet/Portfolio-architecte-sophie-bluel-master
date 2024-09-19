@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             const projects = await response.json();
             allProjects = projects;
-            showProjects(); // Afficher tous les projets après récupération
+            showProjects(); 
         } catch (error) {
             console.error("Erreur lors de la récupération des projets :", error);
         }
