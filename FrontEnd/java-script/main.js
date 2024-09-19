@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fonction pour "sanitiser" le nom des catégories pour en faire une classe CSS valide
     function sanitizeCategoryName(name) {
-        return name.toLowerCase().replace(/[\s&]/g, '-'); // Remplace les espaces et "&" par des tirets
+        return name.toLowerCase().replace(/[^a-z0-9-]/g, '-'); 
     }
 
     // Fonction pour récupérer et afficher les projets

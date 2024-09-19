@@ -1,5 +1,5 @@
 const apiUrl = 'http://localhost:5678/api/works';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjU2NjI0NSwiZXhwIjoxNzI2NjUyNjQ1fQ.ysVYWCKuAM7NV7CdxRLE7-W94KR3Bg97sp5qewlKrTs';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjc2NTcxMSwiZXhwIjoxNzI2ODUyMTExfQ.NIPaXFB1c3l3aG8keKjpx8mMij-EaY2C8nNGcdUor_M';
 
 // Fonction pour charger les projets depuis l'API et ajouter une icône de poubelle
 function loadProjects() {

@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Vérifier si le fond sombre doit rester actif
     function checkIfBackdropShouldClose() {
-        if (modalProjets.style.display === "none" && modalAddProject.style.display === "none") {
+        if (modalProjets.style.display === "none") {
+            modalBackdrop.classList.remove('active');
+        }
+        if (modalAddProject.style.display === "none") {
             modalBackdrop.classList.remove('active');
         }
     }
@@ -49,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fermer les modales au clic sur la croix
     closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
     closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
-
    
 });
 

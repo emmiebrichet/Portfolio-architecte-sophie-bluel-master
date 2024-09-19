@@ -68,7 +68,7 @@ if (addProjectForm) {
                 const response = await fetch('http://localhost:5678/api/works', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjU2NjI0NSwiZXhwIjoxNzI2NjUyNjQ1fQ.ysVYWCKuAM7NV7CdxRLE7-W94KR3Bg97sp5qewlKrTs' 
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjc2NTcxMSwiZXhwIjoxNzI2ODUyMTExfQ.NIPaXFB1c3l3aG8keKjpx8mMij-EaY2C8nNGcdUor_M' 
                     },
                     body: formData
                 });
