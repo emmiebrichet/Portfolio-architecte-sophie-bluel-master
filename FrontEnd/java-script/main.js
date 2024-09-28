@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } catch (error) {
             console.error("Erreur lors de la récupération des projets :", error);
         }
-    }
+    };
 
     // Fonction pour récupérer et afficher les catégories
     async function fetchCategories() {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } catch (error) {
             console.error("Erreur lors de la récupération des catégories :", error);
         }
-    }
+    };
 
     // Fonction pour afficher les projets selon la catégorie
     function showProjects(categoryId = 'all') {
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             projectsContainer.appendChild(projectFigure);
         });
-    }
+    };
 
     // Appeler les fonctions pour récupérer les projets et les catégories au chargement de la page
     fetchProjects();

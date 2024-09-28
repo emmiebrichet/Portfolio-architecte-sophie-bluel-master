@@ -15,14 +15,15 @@ document.addEventListener("DOMContentLoaded", function() {
     function openModal(modal) {
         modalBackdrop.classList.add('active');
         modal.style.display = "block";
-    }
+    };
 
     // Fonction pour fermer un modal avec display none
     function closeModal(modal) {
         modal.style.display = "none";
         checkIfBackdropShouldClose();
-    }
+    };
 
+    
     // Vérifier si le fond sombre doit rester actif
     function checkIfBackdropShouldClose() {
         if (modalProjets.style.display === "none") {
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (modalAddProject.style.display === "none") {
             modalBackdrop.classList.remove('active');
         }
-    }
+    };
 
     // Ouvrir le modal "Mes Projets"
     openModalBtn.addEventListener('click', () => openModal(modalProjets));
@@ -49,10 +50,18 @@ document.addEventListener("DOMContentLoaded", function() {
         openModal(modalProjets);
     });
 
-    // Fermer les modales au clic sur la croix
-    closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
-    closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
-   
+   modalBackdrop.addEventListener('click', (event) => {
+  // Vérifie si l'utilisateur a cliqué sur l'arrière-plan et non sur le contenu du modal
+  if (event.target === modalBackdrop) {
+    closeModal(modalProjets); 
+  }
+  if (event.target === modalBackdrop) {
+    closeModal(modalAddProject); 
+  }
+  closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
+closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
+
+});
 });
 
 

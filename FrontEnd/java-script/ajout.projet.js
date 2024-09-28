@@ -1,4 +1,4 @@
-document.getElementById('triggerFileInput').addEventListener('click', function() {
+    document.getElementById('triggerFileInput').addEventListener('click', function() {
     const fileInput = document.getElementById('fileInput');
     if (fileInput) {
         fileInput.click();
@@ -57,7 +57,7 @@ if (fileInput) {
             reader.readAsDataURL(file);
         }
     });
-} else {
+    } else {
     console.error('Élément fileInput introuvable');
 }
 
@@ -80,7 +80,7 @@ if (addProjectForm) {
                 const response = await fetch('http://localhost:5678/api/works', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzI4NzExMiwiZXhwIjoxNzI3MzczNTEyfQ.3faOV8TJpjOz1rQNg8WvfDDFCsGFICeY6batV-LfMc4' 
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzQzMzg4NywiZXhwIjoxNzI3NTIwMjg3fQ.mKRZxWl7zRrRH6gFv2_7WOhBl10qBOkvNPz4aNgecSg' 
                     },
                     body: formData
                 });
@@ -104,7 +104,7 @@ if (addProjectForm) {
             }
         }
     });
-} else {
+} else {    
     console.error('Élément addProjectForm introuvable');
-}
+};
 
