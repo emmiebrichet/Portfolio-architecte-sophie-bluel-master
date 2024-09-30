@@ -12,10 +12,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         	crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<script src="/FrontEnd/java-script/homepage.js"defer></script>
-		<script src="/FrontEnd/java-script/main.js"defer></script>
-		<script src="/FrontEnd/java-script/modale.supprimer.js">defer</script>
-		<script src="/FrontEnd/java-script/ajout.projet.js"defer></script>
+		<script src="/FrontEnd/javascript/homepage.js" defer></script>
+		<script src="/FrontEnd/javascript/main.js" defer></script>
+		<script src="/FrontEnd/javascript/modale.supprimer.js" defer></script>
+		<script src="/FrontEnd/javascript/ajout.projet.js" defer></script>
 	</head>
 	<body>
 		<div class="editor">
@@ -29,9 +29,9 @@
 			<div class="menu">
 				<nav>
 					<ul>
-						<a href="#portfolio"><li>Projets</li></a>
-						<a href="#contact"><li>Contact</li></a>
-						<a href="index.html"><li>logout</li></a>
+						<li><a href="#portfolio">projets</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="index.html">logout</a></li>
 						<li><a href=" https://www.instagram.com/"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 					</ul>
 				</nav>
@@ -60,7 +60,7 @@
 					<p id="openModalBtn">Modifier</p>
 				</div>
 			</section>
-				
+			<section>
 				<div class="modal-backdrop">
 					<dialog id="myModal_projets">
 						<div class="boutons" id="closeModalBtn">
@@ -69,7 +69,7 @@
 						<h2>Galerie photo</h2>
 						<form>
 							<div class="image-container">
-								<div id="projectContainer">
+								<div id="projectContainer"></div>
 								<div id="projectsGallery" class="gallery"></div>
 							</div>
 							<div class="ligne-horizontale"></div>
@@ -77,7 +77,6 @@
 						</form>
 					</dialog>
 				</div>
-				
 				<div id="modalBackdrop">
 					<dialog id="myModal_addProject">
 						<div class="boutons">
@@ -95,7 +94,7 @@
 								</div>
 								<div class="bouton">
 									<button type="button" id="triggerFileInput">
-										<p id="addPhoto">+ Ajouter photo</p>
+										 + Ajouter photo
 									</button>
 								</div>
 								<p class="file-info">jpg, png : 4mo max</p>
@@ -103,19 +102,13 @@
 							
 							<label for="titleInput">Titre</label>
 							<input type="text" id="titleInput" required>
-							<label for="categorySelect">Catégorie</label>
-							<select id="categorySelect" required>
-							</select>
+							<select id="categorySelect" required></select>
 							<div class="ligne-horizontale"></div>
 							<button type="submit" id="validateButton">Valider</button>
 						</form>
 					</dialog>
 				</div>
-				
 				<div id="projects-container" class="gallery"></div>	
-				<div id="projectsGallery" class="gallery"></div>
-
-
 			</section>
 			<section id="contact">
 				<h2>Contact</h2>

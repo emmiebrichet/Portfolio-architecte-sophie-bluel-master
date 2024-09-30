@@ -60,7 +60,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 20px	
 }
 section {
 	margin: 50px 0
@@ -559,13 +559,24 @@ font-weight: bold;
 text-decoration:underline ;
 
 }
-.editor{
+
+.code{
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	background-color: black;
-	color: white;
-	height: 56px;
+}
+.editor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    height: 56px;
+    width: 100vw; /* Prend toute la largeur de la fenêtre */
+    position:absolute;
+    top: 0;
+    left: 0;
+
+	 
 }
 footer nav ul {
 	display: flex;
