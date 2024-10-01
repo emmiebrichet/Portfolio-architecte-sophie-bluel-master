@@ -416,41 +416,41 @@ dialog {
     display: flex;
     background-color: black;
     color: white;
-    height: 56px; /* Hauteur de la barre */
-    width: 100vw; /* Prend toute la largeur de la fenêtre */
+    height: 56px;
+    width: 100vw; 
     position: absolute;
     top: 0;
     left: 0;
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
+    align-items: center; 
+    justify-content: center;
 }   
 
 .editor-content {
-    display: flex; /* Utiliser Flexbox pour le contenu interne */
-    flex-direction: row; /* Aligne l'icône et le texte sur une ligne */
-    align-items: center; /* Centre verticalement l'icône et le texte */
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
 }
 .Titre{
 display: flex;
 flex-direction: row;
-align-content: center; /* Centre verticalement */
-justify-content: center; /* Centre horizontalement */
+align-content: center;
+justify-content: center;
 
 
 }
 .Modifier {
     display: flex;
-    flex-direction: row; /* Aligne les éléments horizontalement */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
 }
 
 
 .Modifier p,
 .Modifier i {
-    margin: 0px; /* Ajoute un peu d'espace entre les éléments, sans marge verticale */
-    justify-content: center; /* Centre horizontalement */
+    margin: 0px; 
+    justify-content: center; 
 }
 
 
