@@ -430,6 +430,14 @@ dialog {
     flex-direction: row; /* Aligne l'icône et le texte sur une ligne */
     align-items: center; /* Centre verticalement l'icône et le texte */
 }
+.Titre{
+display: flex;
+flex-direction: row;
+align-content: center; /* Centre verticalement */
+justify-content: center; /* Centre horizontalement */
+
+
+}
 .Modifier {
     display: flex;
     flex-direction: row; /* Aligne les éléments horizontalement */
@@ -438,10 +446,6 @@ dialog {
     text-align: center; /* Centre le texte */
 }
 
-.Modifier h2 {
-    margin: 0; /* Supprime la marge par défaut du h2 */
-    line-height: 1.5; /* Ajustez cette valeur pour un meilleur centrage */
-}
 
 .Modifier p,
 .Modifier i {

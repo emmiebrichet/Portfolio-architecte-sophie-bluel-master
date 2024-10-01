@@ -1,11 +1,7 @@
-// Écouteur d'événement pour le bouton qui déclenche l'input de fichier
+// Écouteur d'événement pour le bouton qui déclenche l'input de fichier 
 document.getElementById('triggerFileInput').addEventListener('click', function() {
     const fileInput = document.getElementById('fileInput');
-    if (fileInput) {
-        fileInput.click();
-    } else {
-        console.error('Élément fileInput introuvable');
-    }
+    fileInput.click();
 });
 
 // Récupération des catégories lors du chargement du document
@@ -82,11 +78,17 @@ if (addProjectForm) {
             formData.append('title', title);
             formData.append('category', category);
 
+            const token = localStorage.getItem('api_token'); // Récupération du token
+            if (!token) {
+                alert('Veuillez vous connecter d\'abord.');
+                return;
+            }
+
             try {
                 const response = await fetch('http://localhost:5678/api/works', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Authorization': `Bearer ${token}`,
                     },
                     body: formData,
                 });
@@ -94,19 +96,21 @@ if (addProjectForm) {
                 if (response.ok) {
                     const newProject = await response.json();
                     const modal = document.getElementById('myModal_addProject');
-                    
                     if (modal && typeof modal.close === 'function') {
-                        modal.close(); // Assurez-vous que c'est bien un dialog
+                        modal.close(); // Ferme le modal
                     }
 
-                    // Appeler des fonctions supplémentaires
+                    // Mettre à jour l'interface utilisateur
                     ajouterProjetALaGalerie(newProject);
                     rechargerGalerie();
+                    alert('Projet ajouté avec succès !'); // Message de succès
                 } else {
-                    alert('Erreur lors de l\'ajout du projet : ' + response.statusText);
+                    const errorMessage = await response.json();
+                    alert('Erreur lors de l\'ajout du projet : ' + errorMessage.message);
                 }
             } catch (error) {
                 console.error('Erreur lors de la requête', error);
+                
             }
         } else {
             alert('Veuillez remplir tous les champs avant de soumettre le formulaire.');

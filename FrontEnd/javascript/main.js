@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+
+
     // Appeler les fonctions pour récupérer les projets et les catégories au chargement de la page
     fetchProjects();
     fetchCategories();
