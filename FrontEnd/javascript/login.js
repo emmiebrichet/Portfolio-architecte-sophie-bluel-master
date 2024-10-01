@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
 
     loginForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Empêche la soumission par défaut du formulaire
+        event.preventDefault(); // Empêche l'envoi par défaut du formulaire
 
         const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
-        // Envoyer la requête de connexion
+        // Envoyer la requête de connexion à l'API
         fetch('http://localhost:5678/api/users/login', {
             method: 'POST',
             headers: {
@@ -27,13 +27,15 @@ document.addEventListener("DOMContentLoaded", function() {
             // Sauvegarder le token dans le localStorage
             localStorage.setItem('api_token', data.token);
             
-            // Rediriger vers la page d'accueil après login
-            window.location.href = 'index.html'; // Assurez-vous que cette page existe
+            // Rediriger vers la page index.html
+            window.location.href = 'index.html';
         })
         .catch(error => {
             // Afficher un message d'erreur
             const errorMessage = document.getElementById("errorMessage");
-            errorMessage.textContent = error.message;
+            errorMessage.textContent = 'Erreur dans l’identifiant ou le mot de passe';
+            errorMessage.style.display = 'block';
         });
     });
 });
+    

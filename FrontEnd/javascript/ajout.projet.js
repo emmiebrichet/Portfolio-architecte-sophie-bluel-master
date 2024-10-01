@@ -1,4 +1,5 @@
-    document.getElementById('triggerFileInput').addEventListener('click', function() {
+// Écouteur d'événement pour le bouton qui déclenche l'input de fichier
+document.getElementById('triggerFileInput').addEventListener('click', function() {
     const fileInput = document.getElementById('fileInput');
     if (fileInput) {
         fileInput.click();
@@ -7,13 +8,18 @@
     }
 });
 
-
+// Récupération des catégories lors du chargement du document
 document.addEventListener('DOMContentLoaded', function() { 
     const categorySelect = document.getElementById('categorySelect');
     
     if (categorySelect) {
         fetch('http://localhost:5678/api/categories')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la récupération des catégories : ' + response.statusText);
+                }
+                return response.json();
+            })
             .then(data => {
                 data.forEach(category => {
                     const option = document.createElement('option');
@@ -22,14 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     categorySelect.appendChild(option);
                 });
             })
-            .catch(error => console.error('Erreur lors de la récupération des catégories :', error));
+            .catch(error => console.error(error));
     } else {
         console.error('Élément categorySelect introuvable');
     }
 });
 
-
-
+// Gestion de l'aperçu de l'image
 const fileInput = document.getElementById('fileInput');
 if (fileInput) {
     fileInput.addEventListener('change', function(event) {
@@ -57,10 +62,11 @@ if (fileInput) {
             reader.readAsDataURL(file);
         }
     });
-    } else {
+} else {
     console.error('Élément fileInput introuvable');
 }
 
+// Soumission du formulaire pour ajouter un projet
 const addProjectForm = document.getElementById('addProjectForm');
 if (addProjectForm) {
     addProjectForm.addEventListener('submit', async function(event) {
@@ -77,35 +83,13 @@ if (addProjectForm) {
             formData.append('category', category);
 
             try {
-                const token = localStorage.getItem('token');
-
-if (token) {
-    // Utilisez le token pour des requêtes authentifiées
-    fetch('http://localhost:5678/api/protected-endpoint', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-        },
-    })
-    .then(response => {
-        // Vérifiez si la réponse est correcte (code 200-299)
-        if (!response.ok) {
-            throw new Error('Erreur lors de la requête : ' + response.statusText);
-        }
-        return response.json(); // ou response.text() selon ce que vous attendez
-    })
-    .then(data => {
-        // Gérer les données reçues
-        console.log('Données reçues :', data);
-    })
-    .catch(error => {
-        // Gérer les erreurs
-        console.error('Erreur :', error.message);
-    });
-} else {
-    console.log('Aucun token trouvé, l’utilisateur n’est pas authentifié.');
-}
-
+                const response = await fetch('http://localhost:5678/api/works', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    },
+                    body: formData,
+                });
 
                 if (response.ok) {
                     const newProject = await response.json();
@@ -119,14 +103,15 @@ if (token) {
                     ajouterProjetALaGalerie(newProject);
                     rechargerGalerie();
                 } else {
-                    alert('Erreur lors de l\'ajout du projet');
+                    alert('Erreur lors de l\'ajout du projet : ' + response.statusText);
                 }
             } catch (error) {
                 console.error('Erreur lors de la requête', error);
             }
+        } else {
+            alert('Veuillez remplir tous les champs avant de soumettre le formulaire.');
         }
     });
 } else {    
     console.error('Élément addProjectForm introuvable');
-};
-
+}

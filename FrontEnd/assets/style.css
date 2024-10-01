@@ -568,19 +568,42 @@ text-decoration:underline ;
 	justify-content: center;
 }
 #editorMode {
-    display: none;
-    align-items: center;
-    justify-content: center;
+    display: none; /* Afficher le conteneur pour qu'il soit visible */
     background-color: black;
     color: white;
-    height: 56px;
+    height: 56px; /* Hauteur de la barre */
     width: 100vw; /* Prend toute la largeur de la fenêtre */
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
-
-	 
+    align-items: center; /* Centre verticalement tout le contenu */
+    justify-content: center; /* Centre horizontalement tout le contenu */
 }
+
+.editor-content {
+    display: flex; /* Utiliser Flexbox pour le contenu interne */
+    flex-direction: row; /* Aligne l'icône et le texte sur une ligne */
+    align-items: center; /* Centre verticalement l'icône et le texte */
+    /* Supprimez justify-items, qui n'est pas nécessaire pour Flexbox */
+}
+
+.editor i {
+    font-size: 16px; /* Ajustez la taille de l'icône */
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+}
+
+.editor p {
+    padding-left: 10px; /* Espace entre la bordure et le texte */
+    margin: 0; /* Supprime la marge par défaut du paragraphe */
+    display: flex; /* Utiliser Flexbox pour aligner le texte */
+    align-items: center; /* Centre verticalement le texte */
+    height: 24px; /* Ajustez à la hauteur de l'icône */
+}
+
+
+
+
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
