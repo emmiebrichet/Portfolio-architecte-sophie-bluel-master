@@ -9,12 +9,22 @@
 		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 		<meta name="description" content="">
 		<link rel="stylesheet" href="./assets/style.css">
-			<script src="/FrontEnd/javascript/main.js" defer></script>	
-		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        	crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="/FrontEnd/javascript/homepage.js" defer></script>
+		<script src="/FrontEnd/javascript/main.js" defer></script>
+		<script src="/FrontEnd/javascript/modale.supprimer.js" defer></script>
+		<script src="/FrontEnd/javascript/ajout.projet.js" defer></script>
 	</head>
 	<body>
 	
 		<header>
+			<div class="editor" id="editorMode" style="display: none;">
+				<i class="fa-solid fa-pen-to-square"></i>
+				<p>Mode édition</p>
+			</div>
+			
 			<div class="logo">
 				<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 			</div>
@@ -23,7 +33,7 @@
 					<ul>
 						<li><a href="#portfolio">projets</a></li>
 						<li><a href="#contact">Contact</a></li>
-						<li><a href="login.html">login</a></li>
+						<li id="authLink"><a href="login.html">login</a></li>
 						<li><a href=" https://www.instagram.com/"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 					</ul>
 				</nav>
@@ -45,7 +55,60 @@
 						décorateur(trice)</p>
 				</article>
 			</section>
+			<section>
+				<div class="modal-backdrop">
+					<dialog id="myModal_projets">
+						<div class="boutons" id="closeModalBtn">
+							<i class="fa-duotone fa-solid fa-xmark"></i>
+						</div>
+						<h2>Galerie photo</h2>
+						<form>
+							<div class="image-container">
+								<div id="projectContainer"></div>
+								<div id="projectsGallery" class="gallery"></div>
+							</div>
+							<div class="ligne-horizontale"></div>
+							<button type="button" id="addPhotoBtn">Ajouter une photo</button>
+						</form>
+					</dialog>
+				</div>
+				<div id="modalBackdrop">
+					<dialog id="myModal_addProject">
+						<div class="boutons">
+							<i class="fa-duotone fa-solid fa-arrow-left" id="backToProjectsBtn"></i>
+							<i class="fa-duotone fa-solid fa-xmark" id="closeAddProjectModalBtn"></i>
+						</div>
+						<h2>Ajout de projet</h2>
+						<form id="addProjectForm">
+							<div class="photo-upload">
+								<div id="imagePreviewContainer">
+								</div>
+								<input type="file" accept=".jpg, .png" class="upload-button" id="fileInput">
+								<div class="icone">
+									<i class="fa-regular fa-image"></i>
+								</div>
+								<div class="bouton">
+									<button type="button" id="triggerFileInput">
+										 + Ajouter photo
+									</button>
+								</div>
+								<p class="file-info">jpg, png : 4mo max</p>
+							</div>
+							
+							<label for="titleInput">Titre</label>
+							<input type="text" id="titleInput" required>
+							<select id="categorySelect" required></select>
+							<div class="ligne-horizontale"></div>
+							<button type="submit" id="validateButton">Valider</button>
+						</form>
+					</dialog>
+				</div>
 			<section id="portfolio">
+				<div class="Modifier">
+					<h2>Mes Projets</h2>
+					<i class="fa-solid fa-pen-to-square" id="openModalIcon"></i>
+					<p id="openModalBtn">Modifier</p>
+				</div>
 				
 				<div id="filter-buttons">
 				</div>

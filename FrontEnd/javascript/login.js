@@ -1,16 +1,39 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Empêche la soumission par défaut du formulaire
+document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.getElementById("loginForm");
 
-  const email = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  const errorMessage = document.getElementById('errorMessage');
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
-  if (email === 'sophie.bluel@test.tld' && password === 'S0phie') {
-      // Redirection vers la page d'accueil
-      window.location.href = 'homepage-login.html';
-  } else {
-      // Affiche le message d'erreur si l'email ou le mot de passe est incorrect
-      errorMessage.style.display = 'block'; 
-      errorMessage.textContent = 'Erreur dans l’identifiant ou le mot de passe';
-  }
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Envoyer la requête de connexion
+        fetch('http://localhost:5678/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(errData => {
+                    throw new Error(errData.message || 'Erreur dans l’identifiant ou le mot de passe');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Sauvegarder le token dans le localStorage
+            localStorage.setItem('api_token', data.token);
+            
+            // Rediriger vers la page d'accueil après login
+            window.location.href = 'index.html'; // Assurez-vous que cette page existe
+        })
+        .catch(error => {
+            // Afficher un message d'erreur
+            const errorMessage = document.getElementById("errorMessage");
+            errorMessage.textContent = error.message;
+        });
+    });
 });

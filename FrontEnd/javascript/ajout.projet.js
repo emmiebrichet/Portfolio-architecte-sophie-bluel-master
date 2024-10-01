@@ -77,13 +77,35 @@ if (addProjectForm) {
             formData.append('category', category);
 
             try {
-                const response = await fetch('http://localhost:5678/api/works', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzQzMzg4NywiZXhwIjoxNzI3NTIwMjg3fQ.mKRZxWl7zRrRH6gFv2_7WOhBl10qBOkvNPz4aNgecSg' 
-                    },
-                    body: formData
-                });
+                const token = localStorage.getItem('token');
+
+if (token) {
+    // Utilisez le token pour des requêtes authentifiées
+    fetch('http://localhost:5678/api/protected-endpoint', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    })
+    .then(response => {
+        // Vérifiez si la réponse est correcte (code 200-299)
+        if (!response.ok) {
+            throw new Error('Erreur lors de la requête : ' + response.statusText);
+        }
+        return response.json(); // ou response.text() selon ce que vous attendez
+    })
+    .then(data => {
+        // Gérer les données reçues
+        console.log('Données reçues :', data);
+    })
+    .catch(error => {
+        // Gérer les erreurs
+        console.error('Erreur :', error.message);
+    });
+} else {
+    console.log('Aucun token trouvé, l’utilisateur n’est pas authentifié.');
+}
+
 
                 if (response.ok) {
                     const newProject = await response.json();
