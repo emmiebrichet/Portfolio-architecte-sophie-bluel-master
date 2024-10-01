@@ -82,11 +82,13 @@ h1 > span {
 ;
 }
 
-h2{
+h2{ 
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
+	display: flex;
+	justify-content: center;
 }
 nav ul {
 	display: flex;
@@ -409,17 +411,45 @@ dialog {
     font-size: 12px;
     color: #777;
 }
-.Modifier{
-	display: none;
-	flex-direction: row;
-	justify-content: center;
-	align-items:baseline;
-	cursor: pointer;
+
+#editorMode {
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 56px; /* Hauteur de la barre */
+    width: 100vw; /* Prend toute la largeur de la fenêtre */
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+}   
+
+.editor-content {
+    display: flex; /* Utiliser Flexbox pour le contenu interne */
+    flex-direction: row; /* Aligne l'icône et le texte sur une ligne */
+    align-items: center; /* Centre verticalement l'icône et le texte */
 }
-.Modifier i{
-	display: none;
-	padding: 10px;
+.Modifier {
+    display: flex;
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
 }
+
+.Modifier h2 {
+    margin: 0; /* Supprime la marge par défaut du h2 */
+    line-height: 1.5; /* Ajustez cette valeur pour un meilleur centrage */
+}
+
+.Modifier p,
+.Modifier i {
+    margin: 0px; /* Ajoute un peu d'espace entre les éléments, sans marge verticale */
+    justify-content: center; /* Centre horizontalement */
+}
+
+
 #filter-buttons {
 	
 	margin-bottom: 20px;
@@ -567,41 +597,6 @@ text-decoration:underline ;
 	display: flex;
 	justify-content: center;
 }
-#editorMode {
-    display: none; /* Afficher le conteneur pour qu'il soit visible */
-    background-color: black;
-    color: white;
-    height: 56px; /* Hauteur de la barre */
-    width: 100vw; /* Prend toute la largeur de la fenêtre */
-    position: absolute;
-    top: 0;
-    left: 0;
-    align-items: center; /* Centre verticalement tout le contenu */
-    justify-content: center; /* Centre horizontalement tout le contenu */
-}
-
-.editor-content {
-    display: flex; /* Utiliser Flexbox pour le contenu interne */
-    flex-direction: row; /* Aligne l'icône et le texte sur une ligne */
-    align-items: center; /* Centre verticalement l'icône et le texte */
-    /* Supprimez justify-items, qui n'est pas nécessaire pour Flexbox */
-}
-
-.editor i {
-    font-size: 16px; /* Ajustez la taille de l'icône */
-    margin-right: 10px; /* Espace entre l'icône et le texte */
-}
-
-.editor p {
-    padding-left: 10px; /* Espace entre la bordure et le texte */
-    margin: 0; /* Supprime la marge par défaut du paragraphe */
-    display: flex; /* Utiliser Flexbox pour aligner le texte */
-    align-items: center; /* Centre verticalement le texte */
-    height: 24px; /* Ajustez à la hauteur de l'icône */
-}
-
-
-
 
 
 footer nav ul {

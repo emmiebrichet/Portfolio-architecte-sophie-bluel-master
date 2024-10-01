@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const authLink = document.getElementById("authLink");
-    
-    // Vérifier si le token existe dans le localStorage
     const token = localStorage.getItem('api_token');
-    
-    if (token) {
-        // Si le token est présent, modifier le lien "login" pour se déconnecter
-        authLink.innerHTML = '<a href="index.html" id="logoutLink">logout</a>';
-        
-        // Ajouter un bouton pour le mode édition
-        const editorMode = document.getElementById("editorMode");
-        editorMode.style.display = 'block'; // Afficher le mode édition
+    const editorMode = document.getElementById("editorMode");
+    const modifierSection = document.getElementById("modifierSection");
+    const openModalIcon = document.getElementById("openModalIcon");
+    const authLink = document.getElementById("authLink");
 
+    if (token) {
+        // Afficher le mode édition
+        editorMode.style.display = 'flex'; // Utilisez 'flex' pour conserver le centrage
+        modifierSection.style.display = 'flex'; // Afficher la section "Modifier"
+        openModalIcon.style.display = 'flex'; // Afficher l'icône de modification
+
+        authLink.innerHTML = '<a href="index.html" id="logoutLink">Logout</a>';
+        
         // Gérer la déconnexion
         const logoutLink = document.getElementById("logoutLink");
         logoutLink.addEventListener("click", function() {
@@ -19,34 +20,31 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = 'login.html'; // Rediriger vers la page de connexion
         });
     } else {
-        // Si pas de token, masquer le mode édition
-        const editorMode = document.getElementById("editorMode");
-        editorMode.style.display = 'none';
+        // Masquer le mode édition et autres éléments
+        editorMode.style.display = 'none'; 
+        modifierSection.style.display = 'none'; 
+        openModalIcon.style.display = 'none'; 
     }
 });
 
 
-function logout() {
-    localStorage.removeItem('token'); // Suppression du token
-    window.location.href = 'index.html'; // Redirection vers la page de connexion
+// Fonction pour afficher et centrer le conteneur
+function showEditorMode() {
+
+    const editorMode = document.getElementById('editorMode');
+    editorMode.style.display = 'flex';
+    editorMode.style.position = 'absolute';
+    
+   
+    
+    
+   
+    editorMode.style.alignItems = 'center'; // Centre verticalement
+    editorMode.style.justifyContent = 'center'; // Centre horizontalement
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    const token = localStorage.getItem('token'); // Récupère le token depuis le localStorage
-    const openModalIcon = document.getElementById('openModalIcon');
-    const openModalBtn = document.getElementById('openModalBtn');
-
-    if (token) {
-        // Si le token est présent, affiche l'icône et le bouton
-        openModalIcon.style.display = 'block';
-        openModalBtn.style.display = 'block';
-    } else {
-        // Sinon, cache l'icône et le bouton
-        openModalIcon.style.display = 'block';
-        openModalBtn.style.display = 'block';   
-    }
-});
+// Appel de la fonction pour tester (vous pouvez l'appeler selon vos besoins)
+showEditorMode();
 
 
 
