@@ -4,12 +4,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const modifierSection = document.getElementById("modifierSection");
     const openModalIcon = document.getElementById("openModalIcon");
     const authLink = document.getElementById("authLink");
+    const filterButtons = document.getElementById("filter-buttons"); // Récupérer le bouton filter
 
     if (token) {
         // Afficher le mode édition
         editorMode.style.display = 'flex'; // Utilisez 'flex' pour conserver le centrage
         modifierSection.style.display = 'flex'; // Afficher la section "Modifier"
         openModalIcon.style.display = 'flex'; // Afficher l'icône de modification
+        filterButtons.style.display = 'none'; // Masquer les filtres si le token est présent
 
         authLink.innerHTML = '<a href="index.html" id="logoutLink">Logout</a>';
         
@@ -24,8 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
         editorMode.style.display = 'none'; 
         modifierSection.style.display = 'none'; 
         openModalIcon.style.display = 'none'; 
+        filterButtons.style.display = 'flex'; // Afficher les filtres s'il n'y a pas de token
     }
 });
+
 
 
 // Fonction pour afficher et centrer le conteneur

@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             // Afficher un message d'erreur
             const errorMessage = document.getElementById("errorMessage");
-            erorMessage.textContent = 'Erreur dans l’identifiant ou le mot de passe';
-            errorMessage.style.display = 'block';r
+            errorMessage.textContent = 'Erreur dans l’identifiant ou le mot de passe';
+            errorMessage.classList.add('error-message'); // Ajoute la classe d'erreur
+            errorMessage.style.display = 'flex'; // Affiche le message
         });
     });
 });
-

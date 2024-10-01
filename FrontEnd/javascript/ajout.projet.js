@@ -62,6 +62,7 @@ if (fileInput) {
     console.error('Élément fileInput introuvable');
 }
 
+
 // Soumission du formulaire pour ajouter un projet
 const addProjectForm = document.getElementById('addProjectForm');
 if (addProjectForm) {
