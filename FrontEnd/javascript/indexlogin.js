@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const modifierSection = document.getElementById("modifierSection");
     const openModalIcon = document.getElementById("openModalIcon");
     const authLink = document.getElementById("authLink");
-    const filterButtons = document.getElementById("filter-buttons"); // Récupérer le bouton filter
+    const filterButtons = document.getElementById("filter-buttons"); 
 
     if (token) {
         // Afficher le mode édition
@@ -31,24 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-// Fonction pour afficher et centrer le conteneur
-function showEditorMode() {
-
-    const editorMode = document.getElementById('editorMode');
-    editorMode.style.display = 'flex';
-    editorMode.style.position = 'absolute';
-    
-   
-    
-    
-   
-    editorMode.style.alignItems = 'center'; // Centre verticalement
-    editorMode.style.justifyContent = 'center'; // Centre horizontalement
-}
-
-// Appel de la fonction pour tester (vous pouvez l'appeler selon vos besoins)
-showEditorMode();
 
 document.addEventListener("DOMContentLoaded", function() {
     const modalProjets = document.getElementById("myModal_projets");
