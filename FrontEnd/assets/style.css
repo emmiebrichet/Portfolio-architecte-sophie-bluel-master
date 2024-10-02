@@ -451,13 +451,13 @@ justify-content: center;
 
 .Modifier p,
 .Modifier i {
-    margin: 0px; 
+    margin-left: 20px;
+	margin-bottom: 20px;
     justify-content: center; 
 }
 
 
 #filter-buttons {
-	
 	margin-bottom: 20px;
 	display: flex;
 	flex-direction: row;
