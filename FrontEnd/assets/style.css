@@ -58,8 +58,8 @@ body {
 	font-size: 14px;
 }
 header {
-	display: flex;
-	justify-content: space-between;
+	display:flex;
+	justify-content:space-between;
 	margin: 50px;
 	padding-top: 20px;
 }
@@ -123,7 +123,7 @@ li:hover {
 	margin-bottom: 1em;
 }
 .modal-backdrop {
-    position: none;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -138,6 +138,7 @@ li:hover {
 	flex-wrap: wrap;
     top: 50%; 
     left: 50%;
+	right: 50%;
     width: 520px; 
     height: 580px;
     transform: translate(-50%, -50%); 
@@ -243,15 +244,16 @@ li:hover {
 
 
 #myModal_addProject {
-	display: none; 
+	display: none;
     position: fixed; 
 	flex-direction: row;
 	flex-wrap: wrap;
     top: 50%; 
     left: 50%;
+	right: 50%;
     width: 520px; 
     height: 580px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
     background-color: white;
     border: 1px solid #ccc;
     box-sizing: border-box; 
