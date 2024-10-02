@@ -90,22 +90,38 @@ async function soumettreProjet(event) {
         return;
     }
 
+    // Vérifier si le token est présent dans le localStorage
+const token = localStorage.getItem('api_token');
+
+// Fonction pour soumettre un nouveau projet via l'API
+async function soumettreProjet(event) {
+    event.preventDefault();
+
+    // Vérifier la présence du token
+    if (!token) {
+        afficherErreur('Veuillez vous connecter d\'abord.');
+        return; // Stopper l'envoi si pas de token
+    }
+
+    const fileInput = document.getElementById('fileInput').files[0];
+    const title = document.getElementById('titleInput').value;
+    const category = document.getElementById('categorySelect').value;
+
+    if (!fileInput || !title || !category) {
+        afficherErreur('Veuillez remplir tous les champs avant de soumettre le formulaire.');
+        return;
+    }
+
     const formData = new FormData();
     formData.append('image', fileInput);
     formData.append('title', title);
     formData.append('category', category);
 
-    const token = localStorage.getItem('api_token');
-    if (!token) {
-        afficherErreur('Veuillez vous connecter d\'abord.');
-        return;
-    }
-
     try {
         const response = await fetch('http://localhost:5678/api/works', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${token}`, // Ajout du token dans les headers
             },
             body: formData,
         });
@@ -114,8 +130,7 @@ async function soumettreProjet(event) {
             const newProject = await response.json();
             fermerModalProjet();
             ajouterProjetALaGalerie(newProject);
-            rechargerGalerie();
-           
+            rechargerGalerie();           
         } else {
             const errorMessage = await response.json();
             afficherErreur('Erreur lors de l\'ajout du projet : ' + errorMessage.message);
@@ -124,6 +139,16 @@ async function soumettreProjet(event) {
         console.error('Erreur lors de la requête', error);
         afficherErreur('Une erreur est survenue lors de l\'ajout du projet.');
     }
+}
+
+// Gestionnaire d'événement pour la soumission du formulaire
+const addProjectForm = document.getElementById('addProjectForm');
+if (addProjectForm) {
+    addProjectForm.addEventListener('submit', soumettreProjet);
+} else {
+    console.error('Élément addProjectForm introuvable');
+}
+
 }
 
 // Écouteur d'événement pour la soumission du formulaire

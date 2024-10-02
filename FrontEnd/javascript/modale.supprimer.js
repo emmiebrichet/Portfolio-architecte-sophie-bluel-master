@@ -1,5 +1,5 @@
 // Récupérer le token depuis le localStorage
-const token = localStorage.getItem('api_token'); // Assurez-vous que le nom de la clé correspond à ce que vous avez utilisé
+const token = localStorage.getItem('api_token');
 
 // Fonction pour supprimer un projet
 function deleteProject(projectId) {
