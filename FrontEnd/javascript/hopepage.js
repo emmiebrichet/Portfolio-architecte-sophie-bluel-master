@@ -50,8 +50,6 @@ function showEditorMode() {
 // Appel de la fonction pour tester (vous pouvez l'appeler selon vos besoins)
 showEditorMode();
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const modalProjets = document.getElementById("myModal_projets");
     const modalAddProject = document.getElementById("myModal_addProject");
@@ -62,8 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeModalBtn = document.getElementById("closeModalBtn");
     const backToProjectsBtn = document.getElementById("backToProjectsBtn");
     const closeAddProjectModalBtn = document.getElementById("closeAddProjectModalBtn");
-
-    
 
     // Fonction pour ouvrir un modal avec display block
     function openModal(modal) {
@@ -79,10 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Vérifier si le fond sombre doit rester actif
     function checkIfBackdropShouldClose() {
-        if (modalProjets.style.display === "none") {
-            modalBackdrop.classList.remove('active');
-        }
-        if (modalAddProject.style.display === "none") {
+        if (modalProjets.style.display === "none" && modalAddProject.style.display === "none") {
             modalBackdrop.classList.remove('active');
         }
     }
@@ -106,8 +99,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fermer les modales au clic sur la croix
     closeModalBtn.addEventListener('click', () => closeModal(modalProjets));
     closeAddProjectModalBtn.addEventListener('click', () => closeModal(modalAddProject));
-   
+
+    // Fermer les modales en cliquant à l'extérieur du contenu du modal
+    modalBackdrop.addEventListener('click', (event) => {
+        // Vérifier si le clic s'est produit en dehors du contenu du modal
+        if (event.target === modalBackdrop) {
+            closeModal(modalProjets);
+            closeModal(modalAddProject);
+        }
+    });
 });
-
-
-
