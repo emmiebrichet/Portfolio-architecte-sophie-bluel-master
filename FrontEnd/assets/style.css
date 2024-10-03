@@ -147,8 +147,8 @@ li:hover {
     box-sizing: border-box; 
 }
 #myModal_projets h2{
-	margin-left: 120px;
 	margin-bottom: 20px;
+	justify-content: center;
 }
 #myModal_projets .boutons{
 	display: flex;
@@ -260,8 +260,8 @@ li:hover {
   }
 
   #myModal_addProject h2{
-	margin-left: 120px;
 	margin-bottom: 20px;
+	justify-content: center;
   }
   
   #myModal_addProject .icone{

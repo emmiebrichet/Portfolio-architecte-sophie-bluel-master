@@ -53,11 +53,6 @@ function gererApercuImage(event) {
                 [fileInput, icon, uploadButton, fileInfo].forEach(elem => {
                     if (elem) elem.style.display = 'none';
                 });
-
-                // Changer la couleur du bouton Valider
-                if (validateButton) {
-                    validateButton.style.backgroundColor = '#1D6154';
-                }
             }
         };
         reader.readAsDataURL(file);
@@ -72,6 +67,28 @@ if (fileInput) {
     console.error('Élément fileInput introuvable');
 }
 
+// Fonction pour vérifier si tous les champs sont remplis
+function verifierChampsFormulaire() {
+    const fileInput = document.getElementById('fileInput').files[0];
+    const title = document.getElementById('titleInput').value;
+    const category = document.getElementById('categorySelect').value;
+    const validerButton = document.getElementById('validateButton');
+
+    // Vérification des champs
+    if (fileInput && title && category) {
+        validerButton.style.backgroundColor = '#1D6154';
+        validerButton.disabled = false; // On active le bouton
+    } else {
+        validerButton.style.backgroundColor = 'grey';
+        validerButton.disabled = true; // On désactive le bouton
+    }
+}
+
+// Ajout d'événements pour détecter les changements dans les champs
+document.getElementById('fileInput').addEventListener('change', verifierChampsFormulaire);
+document.getElementById('titleInput').addEventListener('input', verifierChampsFormulaire);
+document.getElementById('categorySelect').addEventListener('change', verifierChampsFormulaire);
+
 // Fonction pour soumettre un nouveau projet via l'API
 async function soumettreProjet(event) {
     event.preventDefault();
@@ -79,7 +96,7 @@ async function soumettreProjet(event) {
     const token = localStorage.getItem('api_token');
     if (!token) {
         afficherErreur('Veuillez vous connecter d\'abord.');
-        return; // Stopper l'envoi si pas de token
+        return;
     }
 
     const fileInput = document.getElementById('fileInput').files[0];
@@ -100,19 +117,18 @@ async function soumettreProjet(event) {
         const response = await fetch('http://localhost:5678/api/works', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`, // Ajout du token dans les headers
+                'Authorization': `Bearer ${token}`,
             },
             body: formData,
         });
 
         if (response.ok) {
-            const newProject = await response.json();
+            const nouveauProjet = await response.json();
             fermerModalProjet();
-            ajouterProjetALaGalerie(newProject);
+            ajouterProjetALaGalerie(nouveauProjet);
             rechargerGalerie();
         } else {
-            const errorMessage = await response.json();
-            afficherErreur('Erreur lors de l\'ajout du projet : ' + errorMessage.message);
+            afficherErreur('Erreur lors de l\'ajout du projet.');
         }
     } catch (error) {
         console.error('Erreur lors de la requête', error);
@@ -136,14 +152,30 @@ function fermerModalProjet() {
     }
 }
 
-// Fonction pour ajouter un projet à la galerie
-function ajouterProjetALaGalerie(projet) {
-    // Implémentez ici la logique pour ajouter le projet à votre galerie
-    console.log('Projet ajouté à la galerie:', projet);
+// Fonction pour recharger la galerie des projets
+function rechargerGalerie() {
+    const galleryContainer = document.getElementById('projects-container');
+    galleryContainer.innerHTML = ''; 
+    loadProjects(); // Recharger les projets depuis l'API
 }
 
-// Fonction pour recharger la galerie
-function rechargerGalerie() {
-    // Implémentez ici la logique pour recharger la galerie après l'ajout
-    console.log('Galerie rechargée');
+// Fonction pour ajouter le nouveau projet dans la galerie
+function ajouterProjetALaGalerie(projet) {
+    const galleryContainer = document.getElementById('projects-container');
+    const projectDiv = document.createElement('div');
+    projectDiv.classList.add('project-item');
+
+    const img = document.createElement('img');
+    img.src = projet.imageUrl;
+    img.alt = `Image du projet ${projet.title}`;
+    img.classList.add('project-image');
+
+    projectDiv.appendChild(img);
+    galleryContainer.appendChild(projectDiv);
 }
+
+
+
+
+
+
