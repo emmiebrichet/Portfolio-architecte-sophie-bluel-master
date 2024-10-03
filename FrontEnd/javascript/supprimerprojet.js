@@ -34,7 +34,7 @@ function loadProjects() {
 
                 // Écouteur d'événement pour supprimer le projet sans confirmation
                 trashIcon.addEventListener('click', () => {
-                    deleteProject(work.id);
+                    deleteProject(work.id); 
                 });
 
                 // Ajouter les éléments au projectDiv

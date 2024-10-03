@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const logoutLink = document.getElementById("logoutLink");
         logoutLink.addEventListener("click", function() {
             localStorage.removeItem('api_token'); // Supprimer le token
-            window.location.href = 'login.html'; // Rediriger vers la page de connexion
+            window.location.href = 'index.html'; // Rediriger vers la page de connexion
         });
     } else {
         // Masquer le mode édition et autres éléments

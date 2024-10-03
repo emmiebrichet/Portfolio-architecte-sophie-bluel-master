@@ -4,11 +4,6 @@ document.getElementById('triggerFileInput').addEventListener('click', function()
     if (fileInput) fileInput.click();
 });
 
-// Fonction pour afficher les erreurs utilisateur
-function afficherErreur(message) {
-    alert(message); // Vous pouvez améliorer cette partie avec des éléments visuels plus élégants dans l'UI
-}
-
 // Fonction pour récupérer les catégories via l'API
 function recupererCategories() {
     const categorySelect = document.getElementById('categorySelect');
@@ -81,24 +76,8 @@ if (fileInput) {
 async function soumettreProjet(event) {
     event.preventDefault();
 
-    const fileInput = document.getElementById('fileInput').files[0];
-    const title = document.getElementById('titleInput').value;
-    const category = document.getElementById('categorySelect').value;
-
-    if (!fileInput || !title || !category) {
-        afficherErreur('Veuillez remplir tous les champs avant de soumettre le formulaire.');
-        return;
-    }
-
-    // Vérifier si le token est présent dans le localStorage
-const token = localStorage.getItem('api_token');
-
-// Fonction pour soumettre un nouveau projet via l'API
-async function soumettreProjet(event) {
-    event.preventDefault();
-
-    // Vérifier la présence du token
-    if (!token) {   
+    const token = localStorage.getItem('api_token');
+    if (!token) {
         afficherErreur('Veuillez vous connecter d\'abord.');
         return; // Stopper l'envoi si pas de token
     }
@@ -130,7 +109,7 @@ async function soumettreProjet(event) {
             const newProject = await response.json();
             fermerModalProjet();
             ajouterProjetALaGalerie(newProject);
-            rechargerGalerie();           
+            rechargerGalerie();
         } else {
             const errorMessage = await response.json();
             afficherErreur('Erreur lors de l\'ajout du projet : ' + errorMessage.message);
@@ -142,16 +121,6 @@ async function soumettreProjet(event) {
 }
 
 // Gestionnaire d'événement pour la soumission du formulaire
-const addProjectForm = document.getElementById('addProjectForm');
-if (addProjectForm) {
-    addProjectForm.addEventListener('submit', soumettreProjet);
-} else {
-    console.error('Élément addProjectForm introuvable');
-}
-
-}
-
-// Écouteur d'événement pour la soumission du formulaire
 const addProjectForm = document.getElementById('addProjectForm');
 if (addProjectForm) {
     addProjectForm.addEventListener('submit', soumettreProjet);
