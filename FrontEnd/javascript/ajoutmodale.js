@@ -98,7 +98,7 @@ async function soumettreProjet(event) {
     event.preventDefault();
 
     // Vérifier la présence du token
-    if (!token) {
+    if (!token) {   
         afficherErreur('Veuillez vous connecter d\'abord.');
         return; // Stopper l'envoi si pas de token
     }
