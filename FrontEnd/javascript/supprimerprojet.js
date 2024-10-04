@@ -79,16 +79,18 @@ function deleteProject(projectId) {
             const projectDiv = document.getElementById(`project-${projectId}`);
             if (projectDiv) {
                 projectDiv.remove(); // Supprime l'élément du DOM
-               
+            
             }
-            fetchProjects()
         } else {
             console.error('Erreur lors de la suppression du projet :', response.statusText);
             alert('Une erreur est survenue lors de la suppression du projet.'); // Afficher une alerte
         }
     })
+    .catch(error => {
+        console.error('Erreur lors de la requête de suppression :', error);
+        alert('Une erreur est survenue lors de la suppression du projet.'); // Alerte en cas d'erreur
+    });
 }
-
 
 // Appeler loadProjects pour récupérer et afficher les projets lorsque le modal s'ouvre
 loadProjects();
