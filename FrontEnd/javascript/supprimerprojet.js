@@ -95,4 +95,3 @@ function deleteProject(projectId) {
 
 // Appeler loadProjects pour récupérer et afficher les projets lorsque le modal s'ouvre
 loadProjects();
-

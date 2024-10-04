@@ -173,9 +173,3 @@ function ajouterProjetALaGalerie(projet) {
     projectDiv.appendChild(img);
     galleryContainer.appendChild(projectDiv);
 }
-
-
-
-
-
-

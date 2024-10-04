@@ -86,5 +86,3 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchProjects();
     fetchCategories();
 });
-
-
