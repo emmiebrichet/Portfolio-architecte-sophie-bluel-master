@@ -125,8 +125,12 @@ async function soumettreProjet(event) {
         if (response.ok) {
             const nouveauProjet = await response.json();
             fermerModalProjet();
-            ajouterProjetALaGalerie(nouveauProjet);
-            rechargerGalerie();
+            // ajouterProjetALaGalerie(nouveauProjet);
+            // rechargerGalerie();
+            loadProjects()
+            fetchProjects()
+
+
         } else {
             afficherErreur('Erreur lors de l\'ajout du projet.');
         }
@@ -152,24 +156,3 @@ function fermerModalProjet() {
     }
 }
 
-// Fonction pour recharger la galerie des projets
-function rechargerGalerie() {
-    const galleryContainer = document.getElementById('projects-container');
-    galleryContainer.innerHTML = ''; 
-    loadProjects(); // Recharger les projets depuis l'API
-}
-
-// Fonction pour ajouter le nouveau projet dans la galerie
-function ajouterProjetALaGalerie(projet) {
-    const galleryContainer = document.getElementById('projects-container');
-    const projectDiv = document.createElement('div');
-    projectDiv.classList.add('project-item');
-
-    const img = document.createElement('img');
-    img.src = projet.imageUrl;
-    img.alt = `Image du projet ${projet.title}`;
-    img.classList.add('project-image');
-
-    projectDiv.appendChild(img);
-    galleryContainer.appendChild(projectDiv);
-}

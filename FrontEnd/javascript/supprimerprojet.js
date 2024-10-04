@@ -81,15 +81,12 @@ function deleteProject(projectId) {
                 projectDiv.remove(); // Supprime l'élément du DOM
                
             }
+            fetchProjects()
         } else {
             console.error('Erreur lors de la suppression du projet :', response.statusText);
             alert('Une erreur est survenue lors de la suppression du projet.'); // Afficher une alerte
         }
     })
-    .catch(error => {
-        console.error('Erreur lors de la suppression du projet:', error);
-        alert('Erreur réseau ou problème serveur.');
-    });
 }
 
 

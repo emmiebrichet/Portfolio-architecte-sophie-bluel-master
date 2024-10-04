@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+
     const apiUrlWorks = "http://localhost:5678/api/works"; // URL de l'API pour récupérer les projets
     const apiUrlCategories = "http://localhost:5678/api/categories"; // URL de l'API pour récupérer les catégories
     const projectsContainer = document.getElementById("projects-container"); // Sélection du conteneur pour les projets
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    // Appeler les fonctions pour récupérer les projets et les catégories au chargement de la page
-    fetchProjects();
-    fetchCategories();
-});
+        // Appeler les fonctions pour récupérer les projets et les catégories au chargement de la page
+        fetchProjects();
+        fetchCategories();
+
